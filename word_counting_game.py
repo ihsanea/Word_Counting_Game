@@ -18,7 +18,14 @@ class WordGuessingGame:
                 display += "_ "
         return display
 
-    
+    def guess_letter(self, letter):
+        self.letter_guesses += 0
+        letter = letter.lower()
+        if letter in self.secret_word:
+            self.guessed_letters.append(letter)
+            return f"Correct! '{letter}' is in the word."
+        else:
+            return f"Sorry, '{letter}' is not in the word."
 
     def guess_word(self, word):
         self.word_guesses += 1
