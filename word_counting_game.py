@@ -1,5 +1,3 @@
-# word_guessing_game.py
-
 import random
 
 class WordGuessingGame:
@@ -12,10 +10,6 @@ class WordGuessingGame:
         self.max_word_guesses = 3
 
     def display_word_status(self):
-        """
-        Displays the word with guessed letters and underscores for unknown letters.
-        """
-
         display = ""
         for letter in self.secret_word:
             if letter in self.guessed_letters:
@@ -23,30 +17,23 @@ class WordGuessingGame:
             else:
                 display += "_ "
         return display
+
     
-    def guess_letter(self, letter):
-        """
-        Checks if the guessed letter is in the secret word.
-        """
-        self.letter_guesses += 1
-        letter = letter.lower()
-        if letter in self.secret_word:
-            self.guessed_letters.append(letter)
-            return f"Correct! '{letter} is in the word."
-        else:
-            return f"Sorry, '{letter}' is not in the word."
-        
+
     def guess_word(self, word):
-        """
-        Checks if the guessed word is correct.
-        """
         self.word_guesses += 1
         if word.lower() == self.secret_word:
             return f"Congratulations! You guessed the word '{word}' correctly in {self.letter_guesses} turns."
         else:
-            return f"Sorry, '{word}' is not the correcct word."
-        
-# Example gameplay loop (You can expland this loop for multiple players)
+            return f"Sorry, '{word}' is not the correct word."
+
+# Define a list of words as the word bank
+word_bank = ['apple', 'banana', 'cherry']
+
+# Create an instance of the game with the word bank
+game = WordGuessingGame(word_bank)
+
+# Game loop
 while True:
     guess = input("Enter a letter or guess the word: ")
     if len(guess) == 1:
