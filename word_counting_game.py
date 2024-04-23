@@ -19,7 +19,7 @@ class WordGuessingGame:
         return display
 
     def guess_letter(self, letter):
-        self.letter_guesses += 0
+        self.letter_guesses += 1
         letter = letter.lower()
         if letter in self.secret_word:
             self.guessed_letters.append(letter)
